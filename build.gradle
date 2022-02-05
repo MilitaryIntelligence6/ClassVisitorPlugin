@@ -1,9 +1,10 @@
-plugins {
-    id 'groovy'
-    id 'java'
-}
+apply plugin: "groovy";
+apply plugin: "java";
+apply plugin: "maven";
+apply plugin: "maven-publish";
 
-group 'cn.misection'
+
+group 'org.misection'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -12,8 +13,24 @@ repositories {
 
 dependencies {
     implementation 'org.codehaus.groovy:groovy-all:3.0.5'
+
+    implementation gradleApi()
+    implementation localGroovy()
+
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            pom.groupId = 'org.misection.visitor'
+            pom.artifactId = 'asm.plugin'
+            pom.version = '1.0.0'
+            //生成的插件存放地址
+            repository(url: uri("./build/output/jar/"))
+        }
+    }
 }
 
 test {
