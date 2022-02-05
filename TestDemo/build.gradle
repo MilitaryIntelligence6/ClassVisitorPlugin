@@ -1,0 +1,33 @@
+apply plugin: "java";
+apply plugin: "org.misection.visitor"
+
+group 'org.misection'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url uri("/Users/javaman/ProgramFiles/develop/project/android/gradle/ClassVisitorPlugin/product/maven");
+        }
+    }
+    // 这个 classpath 必须写在 buildscript 的 dependencies 里;
+    dependencies {
+        // 【pom.groupId】、【pom.artifactId】、【pom.version】 并以冒号分隔的形式来组织的
+        classpath "org.misection:asmvisitor:1.0.0";
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0';
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0';
+}
+
+
+test {
+    useJUnitPlatform()
+}

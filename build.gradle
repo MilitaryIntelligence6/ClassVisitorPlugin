@@ -24,8 +24,9 @@ dependencies {
 uploadArchives {
     repositories {
         mavenDeployer {
-            pom.groupId = 'org.misection.visitor'
-            pom.artifactId = 'asm.plugin'
+            pom.groupId = 'org.misection'
+            // 这里尽量不要分目录, 更不要用`.` or `/` 分割, 否则会创建 xx.xx 这样的目录名, 或者后面使用出现问题
+            pom.artifactId = 'asmvisitor'
             pom.version = '1.0.0'
             // 生成的插件存放地址
             repository(url: uri("./product/maven/"))
