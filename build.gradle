@@ -27,7 +27,7 @@ uploadArchives {
             pom.groupId = 'org.misection.visitor'
             pom.artifactId = 'asm.plugin'
             pom.version = '1.0.0'
-            //生成的插件存放地址
+            // 生成的插件存放地址
             repository(url: uri("./build/output/jar/"))
         }
     }
