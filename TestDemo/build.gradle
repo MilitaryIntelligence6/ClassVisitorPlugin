@@ -12,7 +12,9 @@ buildscript {
     repositories {
         mavenCentral()
         maven {
-            url uri("/Users/javaman/ProgramFiles/develop/project/android/gradle/ClassVisitorPlugin/product/maven");
+//            url uri("/Users/javaman/ProgramFiles/develop/project/android/gradle/ClassVisitorPlugin/product/maven");
+            // 根据报错可以看出相对路径的根是当前项目的根目录, 而非大项目根目录
+            url uri("../product/maven");
         }
     }
     // 这个 classpath 必须写在 buildscript 的 dependencies 里;
